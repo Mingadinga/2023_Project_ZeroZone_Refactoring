@@ -4,7 +4,7 @@ ENV APP_HOME=/apps
 
 WORKDIR $APP_HOME
 
-COPY build.gradle settings.gradle gradlew $APP_HOME
+COPY build.gradle settings.gradle gradlew $APP_HOME/
 RUN gradle build --parallel --continue > /dev/null 2>&1 || true
 
 COPY gradle $APP_HOME/gradle
