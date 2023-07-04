@@ -1,12 +1,12 @@
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    types:
+      - closed
 
 jobs:
   build:
-    # if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     
     # VM의 실행 환경 지정 => Amazon Linux2 AMI (HVM)
     runs-on: ubuntu-latest
